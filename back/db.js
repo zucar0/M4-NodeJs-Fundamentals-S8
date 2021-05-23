@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
 // Importing models
-const Product = require('./models/Product');
-const Review = require('./models/Review');
+const Product = require('./models/product');
+const Review = require('./models/review');
 const User = require('./models/user');
 
 // Database connection
@@ -24,6 +24,10 @@ const models = [
 for (let model of models) {
   model(sequelize);
 }
+//Esto va a crear las tablas que nos falten. Y mandaría un mensaje de tablas creadas. 
+//Se descomenta cuando se crean nuevos modelos.
+// sequelize.sync({ force: false })
+//      .then(() => console.log("Tableas creadas"));
 
 // Configuring relations
 const { products, reviews } = sequelize.models;

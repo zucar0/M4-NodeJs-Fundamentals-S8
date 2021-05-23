@@ -8,7 +8,7 @@
 // ./node_modules/.bin/sequelize migration:create --name CreateTableUsers
 
 // ./node_modules/.bin/sequelize db:migrate
-require('dotenv').config;
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const helmet = require('helmet');
