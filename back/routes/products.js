@@ -10,7 +10,7 @@ router.get('/', permission('admin', 'client'), async (req, res) => {
 });
 
 // Create a new product
-router.post('/', permission('admin'), async (req, res) => {
+router.post('/', permission('admin', "client"), async (req, res) => {
   const { body } = req;
   const product = await sequelize.models.products.create({
     name: body.name,
@@ -23,7 +23,7 @@ router.post('/', permission('admin'), async (req, res) => {
 });
 
 // Update a product by id
-router.put('/:id', permission('admin'), async (req, res) => {
+router.put('/:id', permission('admin', "client"), async (req, res) => {
   const { body, params: { id } } = req;
   const product = await sequelize.models.products.findByPk(id);
   if (!product) {
